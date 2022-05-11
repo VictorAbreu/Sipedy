@@ -1,0 +1,53 @@
+.navbarlogin-container {
+  background-color: #363636;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.navbarlogin-container h5 {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.navbarlogin-container svg {
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 25px;
+  height: 25px;
+}
+
+.navbarlogin-container-sociais {
+  display: flex;
+  margin-left: 30px;
+}
+
+.navbarlogin-container-contato {
+  margin-right: 30px;
+}
+
+@media (min-width: 576px) {
+  .navbarlogin-container h5 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .navbarlogin-container svg {
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .navbarlogin-container-sociais {
+    margin-left: 90px;
+  }
+
+  .navbarlogin-container-contato {
+    margin-right: 90px;
+  }
+}
