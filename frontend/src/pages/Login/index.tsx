@@ -1,4 +1,4 @@
-import NavBarLogin from './components/NavBarLogin';
+
 import './styles.css';
 import Logo from 'assets/images/Sipedy.png'
 
@@ -6,8 +6,7 @@ const Login = () => {
 
     return (
 
-        <div>
-            <NavBarLogin />
+        <div className="login-container">
             <div className="base-card login-form-container">
                 <div className="login-container-imagem">
                     <img src={Logo} alt="Sipedy" className="login-img-container" />

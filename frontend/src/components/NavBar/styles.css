@@ -1,0 +1,29 @@
+.navbarlogin-container {
+  background-color: #363636;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.navbar-container-imagem {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.navbar-img-container {
+  width: 120px;
+}
+
+.navbarlogin-container-contato {
+  margin-right: 30px;
+}
+
+@media (min-width: 768px) {
+  .navbar-container-imagem {
+    margin-left: 60px;
+  }
+}
