@@ -1,14 +1,9 @@
 .login-form-container {
-  margin: 15px;
-  height: 600px;
+  margin: 10px;
   padding: 30px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.login-form-container h6 {
-  font-weight: bold;
 }
 
 .login-container-imagem {
@@ -26,28 +21,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #484848;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.form-login-container h3 {
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .form-login-container p {
   color: #fff;
   font-size: 14px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .form-login-container input {
-  width: 260px;
+  width: 220px;
   height: 35px;
-  padding: 10px;
-  margin-top: 30px;
-  border-radius: 10px;
-}
-
-.btn-entrar {
-  color: #fff;
-  font-weight: bold;
-  margin-top: 35px;
-  width: 260px;
-  height: 35px;
+  padding: 0 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
 }
 
 .text-dev {
@@ -58,26 +54,34 @@
 }
 
 @media (min-width: 576px) {
+  .form-login-container {
+    padding: 20px;
+  }
+
   .form-login-container input {
     width: 320px;
-    height: 40px;
-    padding: 15px;
+    height: 30px;
+    padding: 5px;
   }
 
   .btn-entrar {
-    width: 320px;
+    width: 335px;
+    height: 40px;
   }
 }
 
 @media (min-width: 768px) {
   .login-form-container {
     margin: 40px 40px 0 40px;
+    max-height: 550px;
+    min-height: 600px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
   }
 }
+
 @media (min-width: 1200px) {
   .login-form-container {
     margin: 60px 100px 0 100px;
@@ -85,8 +89,6 @@
 
   .form-login-container input {
     width: 400px;
-    height: 40px;
-    padding: 15px;
   }
 
   .login-img-container {
@@ -94,7 +96,7 @@
   }
 
   .btn-entrar {
-    width: 400px;
+    width: 410px;
   }
 
   .login-form-container h6 {
