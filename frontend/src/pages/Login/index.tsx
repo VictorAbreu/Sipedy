@@ -74,7 +74,7 @@ const Login = () => {
                                 }
                             })}
                             type="text"
-                            className={`form-control base-input`}
+                            className={`form-control base-input input-custom`}
                             placeholder="Email"
                             name="username"
                         />
