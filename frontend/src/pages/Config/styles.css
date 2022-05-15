@@ -1,0 +1,61 @@
+.config-container {
+  padding-left: 30px;
+  padding-top: 20px;
+  width: calc(100vw - 90px);
+}
+
+.carditem-config-container {
+  min-width: 200px;
+  height: 200px;
+  background-color: #363636;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.carditem-config-container h6 {
+  margin-top: 30px;
+}
+
+.carditem-config-container:hover {
+  background-color: #474542cb;
+}
+
+@media (min-width: 576px) {
+  .config-container {
+    width: calc(100vw - 220px);
+  }
+}
+
+@media (min-width: 768px) {
+  .config-container {
+    width: 100%;
+    max-width: 1300px;
+  }
+  .carditem-config-container {
+    width: 220px;
+    margin-right: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .config-container {
+    padding-left: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carditem-config-container {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .carditem-config-container {
+    margin-right: 70px;
+  }
+}

@@ -3,6 +3,7 @@ import './styles.css';
 import { Switch } from "react-router-dom";
 import PrivateRoute from "components/PrivateRoute";
 import Dash from 'pages/Dash';
+import Config from 'pages/Config';
 
 const Home = () => {
 
@@ -15,9 +16,15 @@ const Home = () => {
           <PrivateRoute path="/home/dash">
             <Dash />
           </PrivateRoute>
+
           <PrivateRoute path="/home/config">
-            <h1>Configurações</h1>
+            <Config />
           </PrivateRoute>
+
+          <PrivateRoute path="/home/caduser">
+            <h1>Cadastro de usuários</h1>
+          </PrivateRoute>
+
         </Switch>
       </div>
     </div>
