@@ -14,7 +14,7 @@ const Routes = () => (
             </Route>
 
             <PrivateRoute path="/home">
-                <Route path="/home" exact>
+                <Route path="/home">
                     <Home />
                 </Route>
             </PrivateRoute>

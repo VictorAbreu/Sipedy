@@ -1,12 +1,24 @@
-import './styles.css'; const Home = () => {
+import NavBarLateral from 'components/NavBarLateral';
+import './styles.css';
+import { Switch } from "react-router-dom";
+import PrivateRoute from "components/PrivateRoute";
+import Dash from 'pages/Dash';
+
+const Home = () => {
 
   return (
 
-    <div className="login-container">
-      <h1>Tela home</h1>
-
+    <div className="home-container">
+      <NavBarLateral />
       <div>
-        <h2>teste</h2>
+        <Switch>
+          <PrivateRoute path="/home/dash">
+            <Dash />
+          </PrivateRoute>
+          <PrivateRoute path="/home/config">
+            <h1>Configurações</h1>
+          </PrivateRoute>
+        </Switch>
       </div>
     </div>
 

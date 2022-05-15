@@ -115,3 +115,9 @@
     font-size: 20px;
   }
 }
+
+@media (min-width: 1400px) {
+  .login-form-container {
+    margin: 60px 200px 0 200px;
+  }
+}
