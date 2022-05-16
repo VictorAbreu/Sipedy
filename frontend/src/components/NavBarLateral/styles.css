@@ -26,6 +26,10 @@
   background-color: #474542cb;
 }
 
+.item-menu-container:hover {
+  background-color: #474542cb;
+}
+
 .item-menu-container.active h5 {
   color: #f89501;
 }

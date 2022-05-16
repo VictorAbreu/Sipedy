@@ -1,0 +1,17 @@
+.user-container {
+  padding: 15px;
+  width: calc(100vw - 75px);
+}
+
+@media (min-width: 576px) {
+  .user-container {
+    padding: 15px;
+    width: calc(100vw - 230px);
+  }
+}
+
+@media (min-width: 1400px) {
+  .user-container {
+    width: 1000px;
+  }
+}

@@ -1,0 +1,83 @@
+.formcad-container {
+  margin-top: 30px;
+  padding: 20px 10px 10px 10px;
+  height: 500px;
+  overflow: auto;
+}
+
+.formcad-container input {
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.input-image-container {
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  background-color: dimgrey;
+}
+
+@media (min-width: 768px) {
+  .formcad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .formcad-container {
+    padding: 20px 10px 10px 0;
+  }
+
+  .formcad-container input {
+    margin-left: 10px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .input-container {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .input-image-container {
+    width: 200px;
+    height: 220px;
+    margin-left: 20px;
+    margin-left: 10px;
+  }
+
+  .input-numero {
+    max-width: 70px;
+  }
+
+  .input-bairro {
+    max-width: 200px;
+  }
+
+  .input-estado {
+    max-width: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .formcad-container {
+    justify-content: space-evenly;
+  }
+
+  .inputs-card-container {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .formcad-container {
+    padding: 40px 30px 30px 20px;
+  }
+
+  .input-image-container {
+    margin-left: 30px;
+  }
+}
