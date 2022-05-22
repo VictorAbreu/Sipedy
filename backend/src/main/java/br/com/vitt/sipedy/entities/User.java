@@ -31,13 +31,13 @@ public class User implements UserDetails, Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	private String firstName;
 	private String lastName;
-	
 	@Column(unique = true)
 	private String email;
 	private String password;
+	private String cpf;
+	private String celular;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_role",
@@ -47,13 +47,15 @@ public class User implements UserDetails, Serializable{
 	
 	public User() {}
 
-	public User(Long id, String firstName, String lastName, String email, String password) {
+	public User(Long id, String firstName, String lastName, String email, String password, String celular, String cpf) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+		this.celular = celular;
+		this.cpf = cpf;
 	}
 
 	public Long getId() {
@@ -97,6 +99,22 @@ public class User implements UserDetails, Serializable{
 	}
 	
 	
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	public Set<Role> getRoles() {
 		return roles;

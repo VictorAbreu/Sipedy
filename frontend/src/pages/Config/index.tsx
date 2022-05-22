@@ -12,7 +12,7 @@ const Config = () => {
 
         <div className="row config-container">
 
-            <NavLink to="/home/caduser" className="carditem-config-container">
+            <NavLink to="/home/caduser/create" className="carditem-config-container">
                 <IconAddUser />
                 <h6>Cadastro de usuários</h6>
             </NavLink>

@@ -16,8 +16,10 @@ const ActionBar = () => {
             </div>
             <div className="adduser-action">
                 <div className="adduser-action-item">
-                    <IconBack className="bar-icon" />
-                    <h5>Voltar</h5>
+                    <button className="button-input">
+                        <IconBack className="bar-icon" />
+                        <h5>Voltar</h5>
+                    </button>
                 </div>
                 <div className="adduser-action-item">
                     <IconClear className="bar-icon" />

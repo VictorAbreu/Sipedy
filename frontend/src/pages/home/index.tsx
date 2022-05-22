@@ -4,7 +4,7 @@ import { Switch } from "react-router-dom";
 import PrivateRoute from "components/PrivateRoute";
 import Dash from 'pages/Dash';
 import Config from 'pages/Config';
-import User from 'pages/Config/User';
+import Users from 'pages/Config/User';
 
 const Home = () => {
 
@@ -22,8 +22,8 @@ const Home = () => {
             <Config />
           </PrivateRoute>
 
-          <PrivateRoute path="/home/caduser">
-            <User />
+          <PrivateRoute path="/home/caduser/:userId">
+            <Users />
           </PrivateRoute>
 
         </Switch>

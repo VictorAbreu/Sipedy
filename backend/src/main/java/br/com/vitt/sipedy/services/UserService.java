@@ -106,6 +106,8 @@ public class UserService implements UserDetailsService{
 		entity.setFirstName(dto.getFirstName());
 		entity.setLastName(dto.getLastName());
 		entity.setEmail(dto.getEmail());
+		entity.setCpf(dto.getCpf());
+		entity.setCelular(dto.getCelular());
 		
 		entity.getRoles().clear();
 		

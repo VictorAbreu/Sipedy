@@ -1,5 +1,12 @@
+import { Role } from 'type/role';
+
 export type User = {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  password: string;
+  celular: string;
+  cpf: string;
+  roles: Role[];
 };
