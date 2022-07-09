@@ -129,7 +129,7 @@ const Users = () => {
                                     required: 'Campo obrigatório',
                                 })}
                                 type="text"
-                                className={`form-control ${errors.firstName ? 'is-invalid' : ''
+                                className={`${errors.firstName ? 'is-invalid' : ''
                                     }`}
                                 placeholder="Nome"
                                 name="firstName"

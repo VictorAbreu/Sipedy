@@ -58,17 +58,18 @@
 }
 
 .formcad-container {
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 20px 10px 10px 10px;
   height: 500px;
   overflow: auto;
 }
 
 .formcad-container input {
-  border-radius: 10px;
+  border-radius: 8px;
   width: 100%;
   margin-bottom: 10px;
   padding-left: 10px;
+  border: none;
 }
 
 .input-select {
@@ -96,6 +97,8 @@
   .user-container {
     padding: 15px;
     width: calc(100vw - 230px);
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -116,10 +119,7 @@
     justify-content: center;
     align-items: center;
     height: auto;
-  }
-
-  .formcad-container {
-    padding: 20px 10px 10px 0;
+    padding: 20px 20px 20px 10px;
   }
 
   .formcad-container input {
@@ -135,16 +135,16 @@
 
   .input-select {
     margin-left: 10px;
-    font-size: 14px;
+    font-size: 12px;
     width: 100%;
-    border-radius: 10px;
-    height: 30px;
+    border-radius: 8px;
+    height: 35px;
   }
 
   .input-image-container {
+    margin: 0 0 0 20px;
     width: 200px;
-    height: 220px;
-    margin-left: 20px;
+    height: 180px;
     border-radius: 10px;
   }
 
@@ -184,13 +184,26 @@
   }
 
   .inputs-card-container {
-    width: 800px;
+    width: calc(100vw - 500px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 30px;
   }
 }
 
 @media (min-width: 1200px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .formcad-container {
-    padding: 40px 30px 30px 20px;
+    max-width: 1000px;
+  }
+
+  .inputs-card-container {
+    width: 700px;
   }
 
   .input-image-container {
