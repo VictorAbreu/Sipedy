@@ -34,8 +34,8 @@
   color: #f89501;
 }
 
-.item-menu-container.active svg {
-  stroke: #f89501;
+.item-menu-container.active path {
+  fill: #f89501;
 }
 
 @media (min-width: 576px) {

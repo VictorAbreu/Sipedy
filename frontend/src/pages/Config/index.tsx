@@ -17,11 +17,10 @@ const Config = () => {
                 <h6>Cadastro de usuários</h6>
             </NavLink>
 
-
-            <div className="carditem-config-container">
+            <NavLink to="/home/listuser" className="carditem-config-container">
                 <IconList />
                 <h6>Lista de usuários</h6>
-            </div>
+            </NavLink>
 
             <div className="carditem-config-container">
                 <IconKey />

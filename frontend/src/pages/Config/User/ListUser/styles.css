@@ -1,0 +1,18 @@
+.listuser-container-cards {
+  overflow: auto;
+  height: calc(100vh - 200px);
+}
+
+.cards-list {
+  overflow: auto;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+@media (min-width: 1200px) {
+  .cards-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

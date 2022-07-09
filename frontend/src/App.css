@@ -38,7 +38,7 @@ a:hover {
 }
 
 .base-input {
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1em;
   letter-spacing: -0.015em;
   color: #263238;
@@ -50,7 +50,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #363636;
+  background-color: #e5e5e5;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }

@@ -5,6 +5,7 @@ import PrivateRoute from "components/PrivateRoute";
 import Dash from 'pages/Dash';
 import Config from 'pages/Config';
 import Users from 'pages/Config/User';
+import ListUser from 'pages/Config/User/ListUser';
 
 const Home = () => {
 
@@ -24,6 +25,10 @@ const Home = () => {
 
           <PrivateRoute path="/home/caduser/:userId">
             <Users />
+          </PrivateRoute>
+
+          <PrivateRoute path="/home/listuser">
+            <ListUser />
           </PrivateRoute>
 
         </Switch>

@@ -89,6 +89,10 @@
 }
 
 @media (min-width: 576px) {
+  .bar-nav-container {
+    width: calc(100vw - 230px);
+  }
+
   .user-container {
     padding: 15px;
     width: calc(100vw - 230px);
