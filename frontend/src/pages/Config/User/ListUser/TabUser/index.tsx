@@ -3,8 +3,13 @@ import { ReactComponent as IconEmail } from 'assets/images/email.svg';
 import { ReactComponent as IconCel } from 'assets/images/cel.svg';
 import { ReactComponent as IconView } from 'assets/images/olho.svg';
 import './styles.css';
+import { User } from 'type/user';
 
-const TabUser = () => {
+type Props = {
+    user: User
+}
+
+const TabUser = ({ user }: Props) => {
 
     return (
         <div className="base-card tab-container">
@@ -12,14 +17,14 @@ const TabUser = () => {
                 <img src={Eu} alt="Sipedy" className="tab-img" />
                 <div>
                     <div className="tab-container-desc">
-                        <h6>Victor Luiz de Abreu</h6>
+                        <h6>{`${user.firstName} ${user.lastName}`}</h6>
                         <div className="tab-desc">
                             <IconEmail />
-                            <p>vlabreu@outlook.com</p>
+                            <p>{user.email}</p>
                         </div>
                         <div className="tab-desc">
                             <IconCel />
-                            <p>37-99131-3225</p>
+                            <p>{user.celular}</p>
                         </div>
 
                     </div>
