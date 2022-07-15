@@ -34,7 +34,10 @@ const Users = () => {
 
     useEffect(() => {
         if (isEditing) {
-            requestBackend({ url: `/users/${userId}` }).then((response) => {
+            requestBackend({
+                url: `/users/${userId}`,
+                withCredentials: true,
+            }).then((response) => {
                 const user = response.data as User;
                 setValue('firstName', user.firstName);
                 setValue('lastName', user.lastName);

@@ -4,12 +4,14 @@ import { ReactComponent as IconCel } from 'assets/images/cel.svg';
 import { ReactComponent as IconView } from 'assets/images/olho.svg';
 import './styles.css';
 import { User } from 'type/user';
+import { NavLink } from 'react-router-dom';
 
 type Props = {
     user: User
 }
 
 const TabUser = ({ user }: Props) => {
+
 
     return (
         <div className="base-card tab-container">
@@ -33,10 +35,13 @@ const TabUser = ({ user }: Props) => {
 
             <div>
 
-                <button className="btn btn-primary tab-container-bt">
-                    <IconView />
-                    Visualizar
-                </button>
+                <NavLink to={`/home/caduser/${user.id}`}>
+                    <button className="btn btn-primary tab-container-bt">
+                        <IconView />
+                        Visualizar
+                    </button>
+                </NavLink>
+
 
             </div>
 
