@@ -1,41 +1,49 @@
 
 import { AxiosRequestConfig } from 'axios';
-import { useEffect, useState } from 'react';
+import Pagination from 'components/Pagination';
+import { useCallback, useEffect, useState } from 'react';
 import { SpringPage } from 'type/spring';
 import { User } from 'type/user';
 import { requestBackend } from 'util/requests';
 import ActionBar from './ActionBar';
-import Pagination from './Pagination';
 import './styles.css';
 import TabUser from './TabUser';
 
+type ControlComponentsData = {
+    activepage: number;
+};
 
 const ListUser = () => {
 
     const [page, setPage] = useState<SpringPage<User>>();
+    const [controlComponentsData, setControlComponentsData] =
+        useState<ControlComponentsData>({
+            activepage: 0
+        });
 
-    const getUser = (pageNumber: number) => {
+    const handlePageChange = (pageNumber: number) => {
+        setControlComponentsData({ activepage: pageNumber });
+    };
+
+    const getUser = useCallback(() => {
         const params: AxiosRequestConfig = {
             method: 'GET',
             url: '/users',
             withCredentials: true,
             params: {
-                page: pageNumber,
+                page: controlComponentsData.activepage,
                 size: 12,
             },
         };
         requestBackend(params)
             .then((response) => {
                 setPage(response.data);
-            })
-            .finally(() => {
-
             });
-    };
+    }, [controlComponentsData]);
 
     useEffect(() => {
-        getUser(0);
-    }, []);
+        getUser();
+    }, [getUser]);
 
     return (
         <div className="listuser-container">
@@ -52,7 +60,12 @@ const ListUser = () => {
 
             </div>
 
-            <Pagination />
+            <Pagination
+                forcePage={page?.number}
+                pageCount={page ? page.totalPages : 0}
+                range={3}
+                onChange={handlePageChange}
+            />
         </div>
     );
 };
