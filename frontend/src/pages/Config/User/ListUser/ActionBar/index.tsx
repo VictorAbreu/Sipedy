@@ -1,6 +1,7 @@
 import './styles.css';
 import { ReactComponent as IconBack } from 'assets/images/voltar.svg';
 import { ReactComponent as IconList } from 'assets/images/lista.svg';
+import { NavLink } from 'react-router-dom';
 
 const ActionBar = () => {
 
@@ -15,8 +16,10 @@ const ActionBar = () => {
             <div className="adduser-action">
                 <div className="adduser-action-item">
                     <button className="button-input">
-                        <IconBack className="bar-icon" />
-                        <h5>Voltar</h5>
+                        <NavLink to={"/home/config"} className="button-input">
+                            <IconBack className="bar-icon" />
+                            <h5>Voltar</h5>
+                        </NavLink>
                     </button>
                 </div>
 
