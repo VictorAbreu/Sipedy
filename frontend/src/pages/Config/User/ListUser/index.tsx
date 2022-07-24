@@ -8,9 +8,11 @@ import { requestBackend } from 'util/requests';
 import ActionBar from './ActionBar';
 import './styles.css';
 import TabUser from './TabUser';
+import { UserFilterData } from 'pages/Config/User/ListUser/ActionBar';
 
 type ControlComponentsData = {
     activepage: number;
+    filterData: UserFilterData;
 };
 
 const ListUser = () => {
@@ -18,12 +20,17 @@ const ListUser = () => {
     const [page, setPage] = useState<SpringPage<User>>();
     const [controlComponentsData, setControlComponentsData] =
         useState<ControlComponentsData>({
-            activepage: 0
+            activepage: 0,
+            filterData: { name: "" }
         });
 
     const handlePageChange = (pageNumber: number) => {
-        setControlComponentsData({ activepage: pageNumber });
+        setControlComponentsData({ activepage: pageNumber, filterData: controlComponentsData.filterData });
     };
+
+    const handleSubmitFilter = (data: UserFilterData) => {
+        setControlComponentsData({ activepage: 0, filterData: data });
+    }
 
     const getUser = useCallback(() => {
         const params: AxiosRequestConfig = {
@@ -33,6 +40,7 @@ const ListUser = () => {
             params: {
                 page: controlComponentsData.activepage,
                 size: 12,
+                name: controlComponentsData.filterData.name,
             },
         };
         requestBackend(params)
@@ -47,7 +55,7 @@ const ListUser = () => {
 
     return (
         <div className="listuser-container">
-            <ActionBar />
+            <ActionBar onSubmitFilter={handleSubmitFilter} />
             <div className="listuser-container-cards" >
                 {page?.content.map((user) => {
                     return (
