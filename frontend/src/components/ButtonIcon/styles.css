@@ -15,3 +15,9 @@
   font-size: 15px;
   text-transform: uppercase;
 }
+
+@media (min-width: 1200px) {
+  .btn-container button {
+    width: 400px;
+  }
+}
