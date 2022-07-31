@@ -38,3 +38,6 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (14, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (15, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (16, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (17, 1);
+
+INSERT INTO tb_empresa (celular, cep, cidade, contato, cpf_cnpj, email, endereco, estado, nome_razao, rg_ie, telefone) VALUES ('37-99191-9191', '35610-000', 'Dores do Indaiá', 'Bill', '17.702.376/0001-40', 'contato@vendetudo.com', 'Av. Francisco Campos, 82', 'MG', 'Vende Tudo Ltda', '058.576.151/8733', '37-3551-3551');
+INSERT INTO tb_empresa (celular, cep, cidade, contato, cpf_cnpj, email, endereco, estado, nome_razao, rg_ie, telefone) VALUES ('37-99191-9192', '35610-000', 'Dores do Indaiá', 'Marcos', '17.702.376/0001-40', 'contato@vendemelhor.com', 'Av. Francisco Campos, 89', 'MG', 'Vende Melhor Ltda', '058.576.151/8733', '37-3551-3552');
