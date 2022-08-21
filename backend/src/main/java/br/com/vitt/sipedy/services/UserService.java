@@ -45,6 +45,8 @@ public class UserService implements UserDetailsService{
 
 	@Transactional(readOnly = true)
 	public Page<UserDTO> findAllPaged(Pageable pageable, String name) {
+		
+		//List<Empresa> empresa = (empresaId == 0) ? null : Arrays.asList(empresaRepository.getOne(empresaId));
 
 		Page<User> list = repository.find(name, pageable);
 

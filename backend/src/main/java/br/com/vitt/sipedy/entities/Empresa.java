@@ -1,12 +1,16 @@
 package br.com.vitt.sipedy.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +34,8 @@ public class Empresa implements Serializable{
 	private String celular;
 	private String email;
 	
+	@ManyToMany(mappedBy = "empresas", cascade = CascadeType.ALL)
+	private Set<User> users = new HashSet<>();
 	
 	public Empresa() {
 		

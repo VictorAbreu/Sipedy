@@ -1,14 +1,16 @@
 package br.com.vitt.sipedy.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import br.com.vitt.sipedy.entities.Empresa;
 import br.com.vitt.sipedy.entities.User;
-
 public class UserDTO implements Serializable{
 	
 
@@ -27,6 +29,7 @@ public class UserDTO implements Serializable{
 	private String celular;
 	
 	Set<RoleDTO> roles = new HashSet<>();
+	List<EmpresaDTO> empresas = new ArrayList<>();
 	
 	public UserDTO() {}
 
@@ -49,6 +52,7 @@ public class UserDTO implements Serializable{
 		cpf = entity.getCpf();
 		celular = entity.getCelular();
 		entity.getRoles().forEach(role -> this.roles.add(new RoleDTO(role)));
+		entity.getEmpresas().forEach(empresa -> this.empresas.add(new EmpresaDTO(empresa)));
 	}
 
 	public Long getId() {
@@ -104,5 +108,15 @@ public class UserDTO implements Serializable{
 	public Set<RoleDTO> getRoles() {
 		return roles;
 	}
+
+	public List<EmpresaDTO> getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(List<EmpresaDTO> empresas) {
+		this.empresas = empresas;
+	}
+
+	
 	
 }

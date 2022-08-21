@@ -45,6 +45,12 @@ public class User implements UserDetails, Serializable{
 	inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "tb_user_empresa",
+	joinColumns = @JoinColumn(name = "user_id"),
+	inverseJoinColumns = @JoinColumn(name = "empresa_id"))
+	private Set<Empresa> empresas = new HashSet<>();
+	
 	public User() {}
 
 	public User(Long id, String firstName, String lastName, String email, String password, String celular, String cpf) {
@@ -98,8 +104,6 @@ public class User implements UserDetails, Serializable{
 		this.password = password;
 	}
 	
-	
-
 	public String getCelular() {
 		return celular;
 	}
@@ -118,6 +122,14 @@ public class User implements UserDetails, Serializable{
 
 	public Set<Role> getRoles() {
 		return roles;
+	}
+	
+	public Set<Empresa> getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(Set<Empresa> empresas) {
+		this.empresas = empresas;
 	}
 
 	@Override
