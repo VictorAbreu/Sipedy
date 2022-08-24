@@ -1,26 +1,13 @@
-package br.com.vitt.sipedy.entities;
+package br.com.vitt.sipedy.dto;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import br.com.vitt.sipedy.entities.Cliente;
 
-@Entity
-@Table(name = "tb_empresa")
-public class Empresa implements Serializable{
+public class ClienteDTO implements Serializable{
 	
 	private static final long serialVersionUID = 1L; 
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nomeRazao;
 	private String contato;
@@ -34,18 +21,10 @@ public class Empresa implements Serializable{
 	private String celular;
 	private String email;
 	
-	@ManyToMany(mappedBy = "empresas", cascade = CascadeType.ALL)
-	private Set<User> users = new HashSet<>();
+	public ClienteDTO() {}
 	
-	@ManyToMany(mappedBy = "empresas", cascade = CascadeType.ALL)
-	private Set<Cliente> clientes = new HashSet<>();
-	
-	public Empresa() {
-		
-	}
-	
-	public Empresa(Long id, String nomeRazao, String contato, String cpfCnpj, String rgIe, String cep, String endereco,
-			String cidade, String estado, String telefone, String celular, String email) {
+	public ClienteDTO(Long id, String nomeRazao, String contato, String cpfCnpj, String rgIe, String cep,
+			String endereco, String cidade, String estado, String telefone, String celular, String email) {
 		super();
 		this.id = id;
 		this.nomeRazao = nomeRazao;
@@ -59,6 +38,21 @@ public class Empresa implements Serializable{
 		this.telefone = telefone;
 		this.celular = celular;
 		this.email = email;
+	}
+	
+	public ClienteDTO(Cliente entity) {
+		this.id = entity.getId();
+		this.nomeRazao = entity.getNomeRazao();
+		this.contato = entity.getContato();
+		this.cpfCnpj = entity.getCpfCnpj();
+		this.rgIe = entity.getRgIe();
+		this.cep = entity.getCep();
+		this.endereco = entity.getEndereco();
+		this.cidade = entity.getCidade();
+		this.estado = entity.getEstado();
+		this.telefone = entity.getTelefone();
+		this.celular = entity.getCelular();
+		this.email = entity.getEmail();
 	}
 
 	public Long getId() {
@@ -155,23 +149,6 @@ public class Empresa implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Empresa other = (Empresa) obj;
-		return Objects.equals(id, other.id);
 	}
 	
 }

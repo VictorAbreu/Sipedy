@@ -5,17 +5,19 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_empresa")
-public class Empresa implements Serializable{
+@Table(name = "tb_cliente")
+public class Cliente implements Serializable{
 	
 	private static final long serialVersionUID = 1L; 
 	
@@ -34,17 +36,17 @@ public class Empresa implements Serializable{
 	private String celular;
 	private String email;
 	
-	@ManyToMany(mappedBy = "empresas", cascade = CascadeType.ALL)
-	private Set<User> users = new HashSet<>();
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "tb_cliente_empresa",
+	joinColumns = @JoinColumn(name = "cliente_id"),
+	inverseJoinColumns = @JoinColumn(name = "empresa_id"))
+	private Set<Empresa> empresas = new HashSet<>();
 	
-	@ManyToMany(mappedBy = "empresas", cascade = CascadeType.ALL)
-	private Set<Cliente> clientes = new HashSet<>();
-	
-	public Empresa() {
+	public Cliente() {
 		
 	}
 	
-	public Empresa(Long id, String nomeRazao, String contato, String cpfCnpj, String rgIe, String cep, String endereco,
+	public Cliente(Long id, String nomeRazao, String contato, String cpfCnpj, String rgIe, String cep, String endereco,
 			String cidade, String estado, String telefone, String celular, String email) {
 		super();
 		this.id = id;
@@ -170,7 +172,7 @@ public class Empresa implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Empresa other = (Empresa) obj;
+		Cliente other = (Cliente) obj;
 		return Objects.equals(id, other.id);
 	}
 	
