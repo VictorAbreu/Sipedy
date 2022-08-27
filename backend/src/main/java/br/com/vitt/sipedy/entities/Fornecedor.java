@@ -1,13 +1,28 @@
-package br.com.vitt.sipedy.dto;
+package br.com.vitt.sipedy.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
-import br.com.vitt.sipedy.entities.Empresa;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-public class EmpresaDTO implements Serializable{
+@Entity
+@Table(name = "tb_fornecedor")
+public class Fornecedor implements Serializable{
 	
 	private static final long serialVersionUID = 1L; 
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nomeRazao;
 	private String contato;
@@ -21,10 +36,18 @@ public class EmpresaDTO implements Serializable{
 	private String celular;
 	private String email;
 	
-	public EmpresaDTO() {}
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "tb_fornecedor_empresa",
+	joinColumns = @JoinColumn(name = "fornecedor_id"),
+	inverseJoinColumns = @JoinColumn(name = "empresa_id"))
+	private Set<Empresa> empresas = new HashSet<>();
 	
-	public EmpresaDTO(Long id, String nomeRazao, String contato, String cpfCnpj, String rgIe, String cep,
-			String endereco, String cidade, String estado, String telefone, String celular, String email) {
+	public Fornecedor() {
+		
+	}
+	
+	public Fornecedor(Long id, String nomeRazao, String contato, String cpfCnpj, String rgIe, String cep, String endereco,
+			String cidade, String estado, String telefone, String celular, String email) {
 		super();
 		this.id = id;
 		this.nomeRazao = nomeRazao;
@@ -38,21 +61,6 @@ public class EmpresaDTO implements Serializable{
 		this.telefone = telefone;
 		this.celular = celular;
 		this.email = email;
-	}
-	
-	public EmpresaDTO(Empresa entity) {
-		this.id = entity.getId();
-		this.nomeRazao = entity.getNomeRazao();
-		this.contato = entity.getContato();
-		this.cpfCnpj = entity.getCpfCnpj();
-		this.rgIe = entity.getRgIe();
-		this.cep = entity.getCep();
-		this.endereco = entity.getEndereco();
-		this.cidade = entity.getCidade();
-		this.estado = entity.getEstado();
-		this.telefone = entity.getTelefone();
-		this.celular = entity.getCelular();
-		this.email = entity.getEmail();
 	}
 
 	public Long getId() {
@@ -149,6 +157,23 @@ public class EmpresaDTO implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Fornecedor other = (Fornecedor) obj;
+		return Objects.equals(id, other.id);
 	}
 	
 }

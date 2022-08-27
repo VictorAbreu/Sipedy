@@ -9,7 +9,6 @@ import java.util.Set;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-import br.com.vitt.sipedy.entities.Empresa;
 import br.com.vitt.sipedy.entities.User;
 public class UserDTO implements Serializable{
 	

@@ -2,9 +2,9 @@ package br.com.vitt.sipedy.dto;
 
 import java.io.Serializable;
 
-import br.com.vitt.sipedy.entities.Empresa;
+import br.com.vitt.sipedy.entities.Fornecedor;
 
-public class EmpresaDTO implements Serializable{
+public class FornecedorDTO implements Serializable{
 	
 	private static final long serialVersionUID = 1L; 
 	
@@ -21,9 +21,9 @@ public class EmpresaDTO implements Serializable{
 	private String celular;
 	private String email;
 	
-	public EmpresaDTO() {}
+	public FornecedorDTO() {}
 	
-	public EmpresaDTO(Long id, String nomeRazao, String contato, String cpfCnpj, String rgIe, String cep,
+	public FornecedorDTO(Long id, String nomeRazao, String contato, String cpfCnpj, String rgIe, String cep,
 			String endereco, String cidade, String estado, String telefone, String celular, String email) {
 		super();
 		this.id = id;
@@ -40,7 +40,7 @@ public class EmpresaDTO implements Serializable{
 		this.email = email;
 	}
 	
-	public EmpresaDTO(Empresa entity) {
+	public FornecedorDTO(Fornecedor entity) {
 		this.id = entity.getId();
 		this.nomeRazao = entity.getNomeRazao();
 		this.contato = entity.getContato();
