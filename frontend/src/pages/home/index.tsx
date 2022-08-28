@@ -6,6 +6,7 @@ import Dash from 'pages/Dash';
 import Config from 'pages/Config';
 import Users from 'pages/Config/User';
 import ListUser from 'pages/Config/User/ListUser';
+import Cliente from 'pages/Cliente';
 
 const Home = () => {
 
@@ -17,6 +18,10 @@ const Home = () => {
         <Switch>
           <PrivateRoute path="/home/dash">
             <Dash />
+          </PrivateRoute>
+
+          <PrivateRoute path="/home/cliente">
+            <Cliente />
           </PrivateRoute>
 
           <PrivateRoute path="/home/config">

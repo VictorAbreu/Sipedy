@@ -25,9 +25,11 @@ const NavBarLateral = () => {
 
                 </li>
 
-                <li className="item-menu-container">
-                    <IconCliente />
-                    <h5> Clientes</h5>
+                <li>
+                    <NavLink to="/home/cliente" className="item-menu-container">
+                        <IconCliente />
+                        <h5> Clientes</h5>
+                    </NavLink>
                 </li>
 
                 <li className="item-menu-container">

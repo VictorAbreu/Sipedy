@@ -1,0 +1,35 @@
+.cliente-page {
+  width: calc(100vw - 75px);
+  height: calc(100vh - 60px);
+  overflow: auto;
+}
+
+.cliente-container {
+  width: calc(100vw - 75px);
+  height: calc(100vh - 60px);
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+@media (min-width: 576px) {
+  .cliente-page {
+    width: calc(100vw - 210px);
+  }
+
+  .cliente-container {
+    width: calc(100vw - 210px);
+  }
+}
+
+@media (min-width: 768px) {
+  .cliente-container {
+    height: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .cliente-container {
+    padding-left: 40px;
+    margin-right: 0;
+  }
+}

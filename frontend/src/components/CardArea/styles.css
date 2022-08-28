@@ -1,0 +1,47 @@
+.cardarea-container {
+  min-width: 180px;
+  width: calc(100vw - 120px);
+  height: 180px;
+  background-color: #363636;
+  margin-left: 10px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cardarea-container h6 {
+  margin-top: 30px;
+}
+
+.cardarea-container:hover {
+  background-color: #474542cb;
+}
+
+@media (min-width: 576px) {
+  .cardarea-container {
+    width: calc(100vw - 255px);
+  }
+}
+
+@media (min-width: 768px) {
+  .cardarea-container {
+    width: 220px;
+    margin-right: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cardarea-container {
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .cardarea-container {
+    margin-right: 60px;
+  }
+}
