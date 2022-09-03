@@ -10,8 +10,35 @@
   align-items: center;
 }
 
+.infobar-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+}
+
+.infobar-container h5 {
+  margin-left: 20px;
+  font-size: 15px;
+}
+
 @media (min-width: 576px) {
   .cadcliente-page {
     width: calc(100vw - 210px);
+  }
+}
+
+@media (min-width: 992px) {
+  .actionbar-container {
+    padding: 0 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .actionbar-container {
+    display: flex;
+  }
+
+  .infobar-container {
+    border-bottom: none;
   }
 }
