@@ -1,0 +1,17 @@
+.cadcliente-page {
+  width: calc(100vw - 75px);
+  height: calc(100vh - 60px);
+  padding: 15px;
+  overflow: auto;
+}
+
+.actionbar-container {
+  padding: 0 10px 0 10px;
+  align-items: center;
+}
+
+@media (min-width: 576px) {
+  .cadcliente-page {
+    width: calc(100vw - 210px);
+  }
+}

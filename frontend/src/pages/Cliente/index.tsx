@@ -10,10 +10,10 @@ const Cliente = () => {
     return (
         <div className="cliente-page">
             <div className="row cliente-container">
-                <CardArea icon={iconCad} tituloArea="Cadastro de clientes" />
-                <CardArea icon={iconList} tituloArea="Lista de clientes" />
-                <CardArea icon={iconAgenda} tituloArea="Agenda de visitas" />
-                <CardArea icon={iconAnota} tituloArea="Anotações de clientes" />
+                <CardArea icon={iconCad} tituloArea="Cadastro de clientes" to="/home/cadcliente/create" />
+                <CardArea icon={iconList} tituloArea="Lista de clientes" to="/home/cadcliente/create" />
+                <CardArea icon={iconAgenda} tituloArea="Agenda de visitas" to="/home/cadcliente/create" />
+                <CardArea icon={iconAnota} tituloArea="Anotações de clientes" to="/home/cadcliente/create" />
             </div>
         </div>
     );
