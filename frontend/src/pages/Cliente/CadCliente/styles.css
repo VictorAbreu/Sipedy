@@ -78,8 +78,42 @@
     border-bottom: none;
   }
 
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
   .form-container input {
     width: auto;
-    margin-right: 15px;
+    margin-bottom: 35px;
+  }
+
+  .input-full {
+    min-width: 100%;
+    margin-right: none;
+  }
+
+  .group-three {
+    display: flex;
+  }
+
+  .group-three input {
+    width: 100%;
+  }
+
+  .input-three {
+    margin-right: 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .inputs-area-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-container {
+    width: 960px;
   }
 }

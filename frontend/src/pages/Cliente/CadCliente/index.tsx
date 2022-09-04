@@ -48,30 +48,25 @@ const CadCliente = () => {
                     <div className="form-container-bar">
                         <h6>Dados do cliente</h6>
                     </div>
-                    <div>
-                        <input className="base-input" type="text" placeholder="Nome / Razão social" />
-                    </div>
 
                     <div>
-                        <input className="base-input" type="text" placeholder="CPF / CNPJ" />
-                        <input className="base-input" type="text" placeholder="RG / Insc. estadual" />
-                        <input className="base-input" type="text" placeholder="CEP" />
-                    </div>
-
-                    <div>
-                        <input className="base-input" type="text" placeholder="Endereço" />
-                        <input className="base-input" type="text" placeholder="Cidade" />
-                        <input className="base-input" type="text" placeholder="Estado" />
-                    </div>
-
-                    <div>
-                        <input className="base-input" type="text" placeholder="Contato" />
-                    </div>
-
-                    <div>
-                        <input className="base-input" type="text" placeholder="Telefone" />
-                        <input className="base-input" type="text" placeholder="Celular" />
-                        <input className="base-input" type="text" placeholder="E-mail" />
+                        <input className="base-input input-full" type="text" placeholder="Nome / Razão social" />
+                        <div className="group-three">
+                            <input className="base-input input-three" type="text" placeholder="CPF / CNPJ" />
+                            <input className="base-input input-three" type="text" placeholder="RG / Insc. estadual" />
+                            <input className="base-input" type="text" placeholder="CEP" />
+                        </div>
+                        <div className="group-three">
+                            <input className="base-input input-three" type="text" placeholder="Endereço" />
+                            <input className="base-input input-three" type="text" placeholder="Cidade" />
+                            <input className="base-input" type="text" placeholder="Estado" />
+                        </div>
+                        <input className="base-input input-full" type="text" placeholder="Contato" />
+                        <div className="group-three">
+                            <input className="base-input input-three" type="text" placeholder="Telefone" />
+                            <input className="base-input input-three" type="text" placeholder="Celular" />
+                            <input className="base-input" type="text" placeholder="E-mail" />
+                        </div>
                     </div>
                 </div>
             </div>
