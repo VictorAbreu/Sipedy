@@ -4,6 +4,7 @@ import { ReactComponent as IconBack } from '../../../assets/images/voltar.svg';
 import { ReactComponent as IconClear } from '../../../assets/images/limpar.svg';
 import { ReactComponent as IconDel } from '../../../assets/images/excluir.svg';
 import { ReactComponent as IconSave } from '../../../assets/images/salvar.svg';
+import BottonBar from 'components/BottonBar';
 
 const CadCliente = () => {
 
@@ -41,6 +42,40 @@ const CadCliente = () => {
 
                 </div>
             </div>
+
+            <div className="inputs-area-container">
+                <div className="base-card form-container">
+                    <div className="form-container-bar">
+                        <h6>Dados do cliente</h6>
+                    </div>
+                    <div>
+                        <input className="base-input" type="text" placeholder="Nome / Razão social" />
+                    </div>
+
+                    <div>
+                        <input className="base-input" type="text" placeholder="CPF / CNPJ" />
+                        <input className="base-input" type="text" placeholder="RG / Insc. estadual" />
+                        <input className="base-input" type="text" placeholder="CEP" />
+                    </div>
+
+                    <div>
+                        <input className="base-input" type="text" placeholder="Endereço" />
+                        <input className="base-input" type="text" placeholder="Cidade" />
+                        <input className="base-input" type="text" placeholder="Estado" />
+                    </div>
+
+                    <div>
+                        <input className="base-input" type="text" placeholder="Contato" />
+                    </div>
+
+                    <div>
+                        <input className="base-input" type="text" placeholder="Telefone" />
+                        <input className="base-input" type="text" placeholder="Celular" />
+                        <input className="base-input" type="text" placeholder="E-mail" />
+                    </div>
+                </div>
+            </div>
+            <BottonBar />
         </div>
     );
 };
