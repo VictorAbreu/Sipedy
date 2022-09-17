@@ -193,11 +193,6 @@
 }
 
 @media (min-width: 1200px) {
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .formcad-container {
     max-width: 1000px;
   }
