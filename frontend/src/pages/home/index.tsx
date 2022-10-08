@@ -8,6 +8,7 @@ import Users from 'pages/Config/User';
 import ListUser from 'pages/Config/User/ListUser';
 import Cliente from 'pages/Cliente';
 import CadCliente from 'pages/Cliente/CadCliente';
+import ListCliente from 'pages/Cliente/ListCliente';
 
 const Home = () => {
 
@@ -39,6 +40,10 @@ const Home = () => {
 
           <PrivateRoute path="/home/cadcliente/:clienteId">
             <CadCliente />
+          </PrivateRoute>
+
+          <PrivateRoute path="/home/listcliente">
+            <ListCliente />
           </PrivateRoute>
 
         </Switch>
