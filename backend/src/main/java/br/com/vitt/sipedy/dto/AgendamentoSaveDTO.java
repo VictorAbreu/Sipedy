@@ -1,48 +1,46 @@
 package br.com.vitt.sipedy.dto;
 
-import static br.com.vitt.sipedy.services.Formatters.DateFormatter.converteDateParaString;
-import static br.com.vitt.sipedy.services.Formatters.DateFormatter.converteDateParaStringHorario;
-
 import java.io.Serializable;
 import java.util.Date;
 
 import br.com.vitt.sipedy.entities.Agendamento;
 import br.com.vitt.sipedy.entities.User;
 
-public class AgendamentoDTO implements Serializable {
+public class AgendamentoSaveDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String titulo;
 	private String descricao;
-	private String data;
-	private String inicio;
-	private String fim;
+	private Date data;
+	private Date inicio;
+	private Date fim;
 	private Boolean lembrete;
 	private User user;
-
-	public AgendamentoDTO() {
+	
+	public AgendamentoSaveDTO() {
 	}
-
-	public AgendamentoDTO(Long id, String titulo, String descricao, Date data, Date inicio, Date fim,
+	
+	public AgendamentoSaveDTO(Long id, String titulo, String descricao, Date data, Date inicio, Date fim,
 			Boolean lembrete, User user) {
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
-		this.data = converteDateParaString(data);
-		this.inicio = converteDateParaStringHorario(inicio);
-		this.fim = converteDateParaStringHorario(fim);
+		this.data = data;
+		this.inicio = inicio;
+		this.fim = fim;
 		this.lembrete = lembrete;
 		this.user = user;
 	}
 	
-	public AgendamentoDTO(Agendamento entity) {
+	public AgendamentoSaveDTO(Agendamento entity) {
 		this.id = entity.getId();
 		this.titulo = entity.getTitulo();
 		this.descricao = entity.getDescricao();
-		this.inicio = converteDateParaStringHorario(entity.getInicio());
-		this.fim = converteDateParaStringHorario(entity.getFim());
+		this.data = entity.getData();
+		this.inicio = entity.getInicio();
+		this.fim = entity.getFim();
 		this.lembrete = entity.getLembrete();
 		this.user = entity.getUser();
 	}
@@ -71,27 +69,27 @@ public class AgendamentoDTO implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
-	public String getInicio() {
+	public Date getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(String inicio) {
+	public void setInicio(Date inicio) {
 		this.inicio = inicio;
 	}
 
-	public String getFim() {
+	public Date getFim() {
 		return fim;
 	}
 
-	public void setFim(String fim) {
+	public void setFim(Date fim) {
 		this.fim = fim;
 	}
 
@@ -110,5 +108,5 @@ public class AgendamentoDTO implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 }

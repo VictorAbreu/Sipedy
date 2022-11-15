@@ -1,7 +1,6 @@
 package br.com.vitt.sipedy.controller;
 
 import java.net.URI;
-import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.vitt.sipedy.dto.AgendamentoDTO;
+import br.com.vitt.sipedy.dto.AgendamentoSaveDTO;
 import br.com.vitt.sipedy.services.AgendamentoService;
 
 @RestController
@@ -32,7 +32,7 @@ public class AgendamentoController {
 	
 	@GetMapping
 	public ResponseEntity<Page<AgendamentoDTO>> findAll(Pageable pageable, 
-			@RequestParam(value = "data") Date data) {
+			@RequestParam(value = "data", defaultValue = "" ) String data) {
 
 		Page<AgendamentoDTO> list = service.findAllPaged(data, pageable);
 
@@ -50,7 +50,7 @@ public class AgendamentoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<AgendamentoDTO> insert(@Valid @RequestBody AgendamentoDTO dto) {
+	public ResponseEntity<AgendamentoSaveDTO> insert(@Valid @RequestBody AgendamentoSaveDTO dto) {
 
 		dto = service.insert(dto);
 
@@ -61,7 +61,7 @@ public class AgendamentoController {
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<AgendamentoDTO> update(@Valid @PathVariable Long id, @RequestBody AgendamentoDTO dto) {
+	public ResponseEntity<AgendamentoSaveDTO> update(@Valid @PathVariable Long id, @RequestBody AgendamentoSaveDTO dto) {
 
 		dto = service.update(id, dto);
 

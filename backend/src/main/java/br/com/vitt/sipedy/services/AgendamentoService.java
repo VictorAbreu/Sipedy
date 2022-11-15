@@ -15,8 +15,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.vitt.sipedy.dto.AgendamentoDTO;
+import br.com.vitt.sipedy.dto.AgendamentoSaveDTO;
 import br.com.vitt.sipedy.entities.Agendamento;
 import br.com.vitt.sipedy.repositories.AgendamentoRepository;
+import br.com.vitt.sipedy.services.Formatters.DateFormatter;
 import br.com.vitt.sipedy.services.exceptions.DatabaseException;
 import br.com.vitt.sipedy.services.exceptions.ResourceNotFoundException;
 
@@ -27,9 +29,11 @@ public class AgendamentoService {
 	private AgendamentoRepository repository;
 	
 	@Transactional(readOnly = true)
-	public Page<AgendamentoDTO> findAllPaged(Date data, Pageable pageable) {
+	public Page<AgendamentoDTO> findAllPaged(String dataString, Pageable pageable) {
 
-		Page<Agendamento> page = repository.findAllPaged(data, pageable);
+		Page<Agendamento> page = repository.findAllPaged(
+				DateFormatter.converteStringParaDate(dataString.equals("") ? new Date().toString() : dataString)
+				, pageable);
 
 		return page.map(x -> new AgendamentoDTO(x));
 	}
@@ -51,23 +55,23 @@ public class AgendamentoService {
 	}
 
 	@Transactional
-	public AgendamentoDTO insert(AgendamentoDTO dto) {
+	public AgendamentoSaveDTO insert(AgendamentoSaveDTO dto) {
 
 		Agendamento entity = new Agendamento();
 		copyDtoToEntity(dto, entity);
 		entity = repository.save(entity);
-		return new AgendamentoDTO(entity);
+		return new AgendamentoSaveDTO(entity);
 
 	}
 
 	@Transactional
-	public AgendamentoDTO update(Long id, AgendamentoDTO dto) {
+	public AgendamentoSaveDTO update(Long id, AgendamentoSaveDTO dto) {
 
 		try {
 			Agendamento entity = repository.getOne(id);
 			copyDtoToEntity(dto, entity);
 			entity = repository.save(entity);
-			return new AgendamentoDTO(entity);
+			return new AgendamentoSaveDTO(entity);
 		} catch (EntityNotFoundException e) {
 
 			throw new ResourceNotFoundException("Id nout found " + id);
@@ -87,13 +91,13 @@ public class AgendamentoService {
 
 	}
 
-	private void copyDtoToEntity(AgendamentoDTO dto, Agendamento entity) {
+	private void copyDtoToEntity(AgendamentoSaveDTO dto, Agendamento entity) {
 
 		entity.setTitulo(dto.getTitulo());
 		entity.setDescricao(dto.getDescricao());
 		entity.setData(dto.getData());
-		entity.setHoraInicio(dto.getHoraInicio());
-		entity.setHoraFim(dto.getHoraInicio());
+		entity.setInicio(dto.getInicio());
+		entity.setFim(dto.getInicio());
 		entity.setLembrete(dto.getLembrete());
 		entity.setUser(dto.getUser());
 	}

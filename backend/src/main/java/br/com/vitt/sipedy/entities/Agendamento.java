@@ -24,8 +24,8 @@ public class Agendamento implements Serializable{
 	private String titulo;
 	private String descricao;
 	private Date data;
-	private Date horaInicio;
-	private Date horaFim;
+	private Date inicio;
+	private Date fim;
 	private Boolean lembrete;
 	
 	@ManyToOne
@@ -50,23 +50,24 @@ public class Agendamento implements Serializable{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
 	public Date getData() {
 		return data;
 	}
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public Date getHoraInicio() {
-		return horaInicio;
+	public Date getInicio() {
+		return inicio;
 	}
-	public void setHoraInicio(Date horaInicio) {
-		this.horaInicio = horaInicio;
+	public void setInicio(Date inicio) {
+		this.inicio = inicio;
 	}
-	public Date getHoraFim() {
-		return horaFim;
+	public Date getFim() {
+		return fim;
 	}
-	public void setHoraFim(Date horaFim) {
-		this.horaFim = horaFim;
+	public void setFim(Date fim) {
+		this.fim = fim;
 	}
 	public Boolean getLembrete() {
 		return lembrete;
