@@ -1,7 +1,5 @@
 package br.com.vitt.sipedy.repositories;
 
-import java.util.Date;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,9 +11,10 @@ import br.com.vitt.sipedy.entities.Agendamento;
 @Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 	
-	@Query("SELECT DISTINCT obj FROM Agendamento obj WHERE "
-			+ "(obj.data LIKE :data)")
-	Page<Agendamento> findAllPaged(Date data, Pageable pageable);
+	@Query(nativeQuery = true, value = "SELECT * "
+										+ "FROM tb_agendamento  "
+										+ "WHERE data LIKE %?1%")
+	Page<Agendamento> findAllPaged(String data, Pageable pageable);
 	
 }
 	

@@ -13,7 +13,7 @@ public class DateFormatter {
 			return null;
 		}
 	}
-	
+
 	public static String converteDateParaString(Date data) {
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 		try {
@@ -22,7 +22,7 @@ public class DateFormatter {
 			return null;
 		}
 	}
-	
+
 	public static String converteDateParaStringHorario(Date data) {
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 		try {

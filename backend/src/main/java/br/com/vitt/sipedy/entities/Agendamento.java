@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,14 +24,31 @@ public class Agendamento implements Serializable{
 	private Long id;
 	private String titulo;
 	private String descricao;
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Date data;
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Date inicio;
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Date fim;
 	private Boolean lembrete;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	public Agendamento() {}
+	
+	public Agendamento(Long id, String titulo, String descricao, Date data, Date inicio, Date fim,
+			Boolean lembrete, User user) {
+		this.id = id;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.data = data;
+		this.inicio = inicio;
+		this.fim = fim;
+		this.lembrete = lembrete;
+		this.user = user;
+	}
 	
 	public Long getId() {
 		return id;

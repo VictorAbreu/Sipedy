@@ -1,6 +1,5 @@
 package br.com.vitt.sipedy.services;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +17,7 @@ import br.com.vitt.sipedy.dto.AgendamentoDTO;
 import br.com.vitt.sipedy.dto.AgendamentoSaveDTO;
 import br.com.vitt.sipedy.entities.Agendamento;
 import br.com.vitt.sipedy.repositories.AgendamentoRepository;
-import br.com.vitt.sipedy.services.Formatters.DateFormatter;
+import br.com.vitt.sipedy.repositories.UserRepository;
 import br.com.vitt.sipedy.services.exceptions.DatabaseException;
 import br.com.vitt.sipedy.services.exceptions.ResourceNotFoundException;
 
@@ -27,12 +26,14 @@ public class AgendamentoService {
 
 	@Autowired
 	private AgendamentoRepository repository;
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Transactional(readOnly = true)
 	public Page<AgendamentoDTO> findAllPaged(String dataString, Pageable pageable) {
 
 		Page<Agendamento> page = repository.findAllPaged(
-				DateFormatter.converteStringParaDate(dataString.equals("") ? new Date().toString() : dataString)
+				dataString
 				, pageable);
 
 		return page.map(x -> new AgendamentoDTO(x));
@@ -97,9 +98,9 @@ public class AgendamentoService {
 		entity.setDescricao(dto.getDescricao());
 		entity.setData(dto.getData());
 		entity.setInicio(dto.getInicio());
-		entity.setFim(dto.getInicio());
+		entity.setFim(dto.getFim());
 		entity.setLembrete(dto.getLembrete());
-		entity.setUser(dto.getUser());
+		entity.setUser(userRepository.getOne(dto.getUser()));
 	}
 
 }

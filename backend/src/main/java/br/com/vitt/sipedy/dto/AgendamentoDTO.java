@@ -20,7 +20,7 @@ public class AgendamentoDTO implements Serializable {
 	private String inicio;
 	private String fim;
 	private Boolean lembrete;
-	private User user;
+	private Long user;
 
 	public AgendamentoDTO() {
 	}
@@ -34,17 +34,18 @@ public class AgendamentoDTO implements Serializable {
 		this.inicio = converteDateParaStringHorario(inicio);
 		this.fim = converteDateParaStringHorario(fim);
 		this.lembrete = lembrete;
-		this.user = user;
+		this.user = user.getId();
 	}
 	
 	public AgendamentoDTO(Agendamento entity) {
 		this.id = entity.getId();
 		this.titulo = entity.getTitulo();
 		this.descricao = entity.getDescricao();
+		this.data = converteDateParaString(entity.getData());
 		this.inicio = converteDateParaStringHorario(entity.getInicio());
 		this.fim = converteDateParaStringHorario(entity.getFim());
 		this.lembrete = entity.getLembrete();
-		this.user = entity.getUser();
+		this.user = entity.getUser().getId();
 	}
 
 	public Long getId() {
@@ -103,11 +104,11 @@ public class AgendamentoDTO implements Serializable {
 		this.lembrete = lembrete;
 	}
 
-	public User getUser() {
+	public Long getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Long user) {
 		this.user = user;
 	}
 	
