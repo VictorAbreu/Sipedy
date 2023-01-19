@@ -13,8 +13,8 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
 	
 	@Query(nativeQuery = true, value = "SELECT * "
 										+ "FROM tb_agendamento  "
-										+ "WHERE data LIKE %?1%")
-	Page<Agendamento> findAllPaged(String data, Pageable pageable);
+										+ "WHERE data LIKE %?1% and userId = ?2")
+	Page<Agendamento> findAllPaged(String data, Long idUser, Pageable pageable);
 	
 }
 	

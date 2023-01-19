@@ -32,9 +32,10 @@ public class AgendamentoController {
 	
 	@GetMapping
 	public ResponseEntity<Page<AgendamentoDTO>> findAll(Pageable pageable, 
-			@RequestParam(value = "data", defaultValue = "" ) String data) {
+			@RequestParam(value = "data", defaultValue = "" ) String data, 
+			@RequestParam(value = "userId", defaultValue = "" ) String userId) {
 
-		Page<AgendamentoDTO> list = service.findAllPaged(data, pageable);
+		Page<AgendamentoDTO> list = service.findAllPaged(data, userId, pageable);
 
 		return ResponseEntity.ok().body(list);
 

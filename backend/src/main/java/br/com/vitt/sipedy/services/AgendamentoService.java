@@ -30,10 +30,16 @@ public class AgendamentoService {
 	private UserRepository userRepository;
 	
 	@Transactional(readOnly = true)
-	public Page<AgendamentoDTO> findAllPaged(String dataString, Pageable pageable) {
+	public Page<AgendamentoDTO> findAllPaged(String dataString, String userId, Pageable pageable) {
+		
+		Long userIdLong = 0L;
+		if(userId != null && !userId.equals("")) {
+			userIdLong = Long.parseLong(userId);
+		}
 
 		Page<Agendamento> page = repository.findAllPaged(
 				dataString
+				, userIdLong
 				, pageable);
 
 		return page.map(x -> new AgendamentoDTO(x));
